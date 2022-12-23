@@ -33,8 +33,8 @@
                         Solo letras minúsculas y sin tíldes
                     </p>
                     <div class="btns-container">
-                        <button class="btns btn--blue">Encriptar</button>
-                        <button class="btns btn--no-bg">Desencriptar</button>
+                        <button class="btns btn--blue" id="btn-encrypt">Encriptar</button>
+                        <button class="btns btn--no-bg" id="btn-decrypt">Desencriptar</button>
                     </div>
                 </div>
             </div>
@@ -44,10 +44,52 @@
                     <img class="illustration-flat" src="./images/ilustracion-flat.svg" alt="ilustración-flat">
                     <h2 class="no-message-title">Ningún mensaje fue encontrado</h2>
                     <p class="no-message-description">Ingresa el texto que deseas encriptar o desencriptar</p>
-                    <button class="btns btn-copy">Copiar</button>
+                    <button class="btns btn-copy" id="btn-copy">Copiar</button>
                 </div>
             </div>
         </section>
     </main>
+
+    <script>
+        let textArea = document.querySelector('#textArea-ed');
+        let btnEncriptar = document.querySelector('#btn-encrypt');
+        let btnDesencriptar = document.querySelector('#btn-decrypt');
+        let btnCopiar = document.querySelector('#btn-copy');
+        let mostraMensaje = document.querySelector('#message-ed');
+
+        btnEncriptar.addEventListener('click', encriptarMensaje);
+
+        function encriptarMensaje() {
+            let mensajeTextArea = textArea.value;
+            let mensajeEncriptado = "";
+            let posicionActual;
+
+            for(let i = 0; i < mensajeTextArea.length; i++) {
+                posicionActual = mensajeTextArea.charAt(i);
+
+                if(posicionActual === "a") {
+                    posicionActual = "ai";
+                } else if(posicionActual === "e") {
+                    posicionActual = "enter";
+                } else if(posicionActual === "i") {
+                    posicionActual = "imes";
+                } else if(posicionActual === "o") {
+                    posicionActual = "ober";
+                } else if(posicionActual === "u") {
+                    posicionActual = "ufat";
+                }
+                mensajeEncriptado += posicionActual;
+                // mensajeEncriptado = h
+                // mensajeEncriptado = hober
+                // mensajeEncriptado = hoberl
+                // mensajeEncriptado = hoberlai
+            }
+            
+            mostraMensaje.classList.add('active');
+            btnCopiar.classList.add('active');
+            mostraMensaje.value = mensajeEncriptado;
+        }
+
+    </script>
 </body>
 </html>

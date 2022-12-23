@@ -15,6 +15,9 @@
 body {
     background: var(--color-lightblue);
 }
+body .active {
+    display: block;
+}
 .navbar-menu {
     padding: 15px;
 }
