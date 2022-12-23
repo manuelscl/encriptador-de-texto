@@ -15,6 +15,7 @@
             --color-darkblue: #0A3871;
             --color-darkblue-hover: #052051;
             --color-lightblue: #F3F5FC;
+            --color-btn2-hover: #dde2ff;
             --gray-descriptions: #495057;
             --darkgray: #343A40;
         }
@@ -84,9 +85,16 @@
             cursor: pointer;
             transition: 0.3s ease;
         }
+        .btns:hover {
+            transform: translate(0, -5px);
+            box-shadow: 0px 24px 32px 0 rgb(0 0 0 / 8%);
+        }
         .btn--no-bg {
             background: none;
             color: var(--color-darkblue);
+        }
+        .btn--no-bg:hover, .btn-copy:hover {
+            background: var(--color-btn2-hover);
         }
         .encrypter-message {
             margin-top: 50px;
@@ -103,6 +111,11 @@
         }
         .message-ed {
             display: none;
+            font-size: 24px;
+            color: var(--darkgray);
+            text-align: center;
+            border: none;
+            outline: none;
         }
         .illustration-flat {
             display: none;
