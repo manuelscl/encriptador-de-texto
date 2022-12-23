@@ -58,6 +58,7 @@
         let mostraMensaje = document.querySelector('#message-ed');
 
         btnEncriptar.addEventListener('click', encriptarMensaje);
+        btnDesencriptar.addEventListener('click', desencriptarMensaje);
 
         function encriptarMensaje() {
             let mensajeTextArea = textArea.value;
@@ -88,6 +89,28 @@
             mostraMensaje.classList.add('active');
             btnCopiar.classList.add('active');
             mostraMensaje.value = mensajeEncriptado;
+        }
+
+        function desencriptarMensaje() {
+            let mensajeTextArea = textArea.value;
+            let mensaje = mensajeTextArea;
+
+            let remplazo = mensaje.replaceAll('ai', 'a');
+            mensaje = remplazo;
+
+            remplazo = mensaje.replaceAll('enter', 'e');
+            mensaje = remplazo;
+
+            remplazo = mensaje.replaceAll('imes', 'i');
+            mensaje = remplazo;
+
+            remplazo = mensaje.replaceAll('ober', 'o');
+            mensaje = remplazo;
+
+            remplazo = mensaje.replaceAll('ufat', 'u');
+            mensaje = remplazo;
+
+            mostraMensaje.value = mensaje;
         }
 
     </script>
