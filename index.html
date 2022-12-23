@@ -27,7 +27,7 @@
         body {
             background: var(--color-lightblue);
         }
-        .navbar-logo {
+        .navbar-menu {
             padding: 15px;
         }
         .logo-container {
@@ -62,6 +62,9 @@
             font-size: 14px;
             color: var(--gray-descriptions);
             gap: 8px;
+        }
+        .info img {
+            width: 15px;
         }
         .btns-container {
             display: flex;
@@ -101,6 +104,9 @@
         .message-ed {
             display: none;
         }
+        .illustration-flat {
+            display: none;
+        }
         .no-message-title {
             font-size: 24px;
             color: var(--darkgray);
@@ -109,14 +115,69 @@
             color: var(--gray-descriptions);
             line-height: 27px;
         }
-        /* .encrypter-message {
-            margin-top: 50px;
-        } */
+        .btn-copy {
+            display: none;
+            color: var(--color-darkblue);
+            background: none;
+        }
+        
+        @media (min-width: 600px) {
+            .navbar-menu {
+                padding: 25px;
+            }
+            .encrypter-container {
+                padding: 25px;
+            }
+            .btns-container {
+                flex-direction: row;
+            }
+        }
+        @media (min-width: 768px) {
+            .navbar-menu {
+                padding: 25px 40px;
+            }
+            .encrypter-container {
+                padding: 40px;
+            }
+        }
+        @media (min-width: 980px) {
+            .navbar-menu {
+                width: 960px;
+                margin: 0 auto;
+                padding-left: 0;
+                padding-right: 0;
+            }
+            .encrypter-container {
+                width: 960px;
+                display: flex;
+                justify-content: space-between;
+                margin: 0 auto;
+                padding: 50px 0;
+                gap: 20px;
+            }
+            .encrypter-bottom {
+                padding-bottom: 30px;
+            }
+            .encrypter-message {
+                margin: 0;
+            }
+            .message {
+                width: 320px;
+                height: 100%;
+                gap: 0;
+            }
+            .illustration-flat {
+                display: block;
+            }
+            .no-message-title {
+                margin-bottom: 20px;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
-        <nav class="navbar-logo">
+        <nav class="navbar-menu">
             <h1 class="logo-container">
                 <a href="#">
                     <img class="logo-img" src="./images/alura-logo.svg" alt="Logo alura">
@@ -131,7 +192,7 @@
                 <div class="encrypter-bottom">
                     <p class="info">
                         <img src="./images/info-icon.svg" alt="">
-                        Solo letra minúsculas y sin tíldes
+                        Solo letras minúsculas y sin tíldes
                     </p>
                     <div class="btns-container">
                         <button class="btns btn--blue">Encriptar</button>
@@ -142,8 +203,10 @@
             <div class="encrypter-message">
                 <div class="message">
                     <input type="text" class="message-ed" id="message-ed">
+                    <img class="illustration-flat" src="./images/ilustracion-flat.svg" alt="ilustración-flat">
                     <h2 class="no-message-title">Ningún mensaje fue encontrado</h2>
                     <p class="no-message-description">Ingresa el texto que deseas encriptar o desencriptar</p>
+                    <button class="btns btn-copy">Copiar</button>
                 </div>
             </div>
         </section>
