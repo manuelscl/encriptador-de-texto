@@ -4,14 +4,122 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts 'Inter' -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600;700&display=swap" rel="stylesheet">
+
     <title>Encriptador de texto</title>
+
+    <style>
+        :root {
+            --color-darkblue: #0A3871;
+            --color-darkblue-hover: #052051;
+            --color-lightblue: #F3F5FC;
+            --gray-descriptions: #495057;
+            --darkgray: #343A40;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        body {
+            background: var(--color-lightblue);
+        }
+        .navbar-logo {
+            padding: 15px;
+        }
+        .logo-container {
+            display: flex;
+            line-height: 0;
+        }
+        .encrypter-container {
+            margin-top: 30px;
+            padding: 15px;
+        }
+        .encrypter-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 35px;
+        }
+        .textArea-ed {
+            width: 100%;
+            height: 220px;
+            font-size: 32px;
+            color: var(--color-darkblue);
+            background: none;
+            border: none;
+            outline: none;
+        }
+        .textArea-ed::placeholder {
+            color: var(--color-darkblue);
+        }
+        .info {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: var(--gray-descriptions);
+            gap: 8px;
+        }
+        .btns-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 35px;
+        }
+        .btns {
+            width: 100%;
+            font-size: 16px;
+            font-weight: 500;
+            color: white;
+            background: var(--color-darkblue);
+            border: 1px solid var(--color-darkblue);
+            border-radius: 24px;
+            padding: 22px 0;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        .btn--no-bg {
+            background: none;
+            color: var(--color-darkblue);
+        }
+        .encrypter-message {
+            margin-top: 50px;
+        }
+        .message {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            box-shadow: 0px 24px 32px -8px rgb(0 0 0 / 8%);
+            text-align: center;
+            border-radius: 24px;
+            padding: 30px;
+            gap: 20px;
+        }
+        .message-ed {
+            display: none;
+        }
+        .no-message-title {
+            font-size: 24px;
+            color: var(--darkgray);
+        }
+        .no-message-description {
+            color: var(--gray-descriptions);
+            line-height: 27px;
+        }
+        /* .encrypter-message {
+            margin-top: 50px;
+        } */
+    </style>
 </head>
 <body>
     <header>
-        <nav>
-            <h1>
+        <nav class="navbar-logo">
+            <h1 class="logo-container">
                 <a href="#">
-                    <img src="./images/alura-logo.svg" alt="Logo alura">
+                    <img class="logo-img" src="./images/alura-logo.svg" alt="Logo alura">
                 </a>
             </h1>
         </nav>
@@ -19,7 +127,7 @@
     <main>
         <section class="encrypter-container">
             <div class="encrypter-content">
-                <textarea name="textArea-ed" id="textArea-ed" cols="30" rows="10" placeholder="Inserta el texto aquí..."></textarea>
+                <textarea name="textArea-ed" class="textArea-ed" id="textArea-ed" cols="30" rows="10" placeholder="Inserta el texto aquí..."></textarea>
                 <div class="encrypter-bottom">
                     <p class="info">
                         <img src="./images/info-icon.svg" alt="">
@@ -35,7 +143,7 @@
                 <div class="message">
                     <input type="text" class="message-ed" id="message-ed">
                     <h2 class="no-message-title">Ningún mensaje fue encontrado</h2>
-                    <p class="no-message-description">Ingresa el mensaje que deseas encriptar o desencriptar</p>
+                    <p class="no-message-description">Ingresa el texto que deseas encriptar o desencriptar</p>
                 </div>
             </div>
         </section>
