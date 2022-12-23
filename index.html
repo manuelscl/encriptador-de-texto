@@ -59,6 +59,7 @@
 
         btnEncriptar.addEventListener('click', encriptarMensaje);
         btnDesencriptar.addEventListener('click', desencriptarMensaje);
+        btnCopiar.addEventListener('click', copiarMensaje);
 
         function encriptarMensaje() {
             let mensajeTextArea = textArea.value;
@@ -113,6 +114,18 @@
             mostraMensaje.value = mensaje;
         }
 
+        function copiarMensaje() {
+            let copiarTexto = mostraMensaje;
+            copiarTexto.select();
+            copiarTexto.setSelectionRange(0, 1000);
+
+            navigator.clipboard.writeText(copiarTexto.value).then(() =>{
+                alert("successfully copied");
+            })
+            .catch(() => {
+                alert("something went wrong");
+            });
+        }
     </script>
 </body>
 </html>
