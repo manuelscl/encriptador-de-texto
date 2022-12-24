@@ -107,6 +107,9 @@ body .active {
     border: none;
     outline: none;
 }
+.message-ed.active {
+    display: block;
+}
 .illustration-flat {
     display: none;
 }
@@ -122,6 +125,7 @@ body .active {
     display: none;
     color: var(--color-darkblue);
     background: none;
+    margin-top: 20px;
 }
 
 @media (min-width: 600px) {

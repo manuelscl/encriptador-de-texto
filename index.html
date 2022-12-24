@@ -55,11 +55,15 @@
         let btnEncriptar = document.querySelector('#btn-encrypt');
         let btnDesencriptar = document.querySelector('#btn-decrypt');
         let btnCopiar = document.querySelector('#btn-copy');
-        let mostraMensaje = document.querySelector('#message-ed');
+        let mostrarMensaje = document.querySelector('#message-ed');
 
         btnEncriptar.addEventListener('click', encriptarMensaje);
         btnDesencriptar.addEventListener('click', desencriptarMensaje);
         btnCopiar.addEventListener('click', copiarMensaje);
+
+        function esMayuscula(letra) {
+            return letra === letra.toUpperCase();
+        }
 
         function encriptarMensaje() {
             let mensajeTextArea = textArea.value;
@@ -68,6 +72,12 @@
 
             for(let i = 0; i < mensajeTextArea.length; i++) {
                 posicionActual = mensajeTextArea.charAt(i);
+
+                if(esMayuscula(posicionActual)) {
+                    alert("No debes escribir el texto en mayúsculas");
+                    textArea.value = "";
+                    return;
+                }
 
                 if(posicionActual === "a") {
                     posicionActual = "ai";
@@ -87,14 +97,25 @@
                 // mensajeEncriptado = hoberlai
             }
             
-            mostraMensaje.classList.add('active');
             btnCopiar.classList.add('active');
-            mostraMensaje.value = mensajeEncriptado;
+            mostrarMensaje.classList.add('active');
+            mostrarMensaje.value = mensajeEncriptado;
         }
 
         function desencriptarMensaje() {
             let mensajeTextArea = textArea.value;
             let mensaje = mensajeTextArea;
+            let posicionActual;
+
+            for(let i = 0; i < mensajeTextArea.length; i++) {
+                posicionActual = mensajeTextArea.charAt(i);
+
+                if(esMayuscula(posicionActual)) {
+                    alert("No debes escribir el texto en mayúsculas");
+                    textArea.value = "";
+                    return;
+                }
+            }
 
             let remplazo = mensaje.replaceAll('ai', 'a');
             mensaje = remplazo;
@@ -111,16 +132,21 @@
             remplazo = mensaje.replaceAll('ufat', 'u');
             mensaje = remplazo;
 
-            mostraMensaje.value = mensaje;
+            console.log(mensaje)
+            
+            btnCopiar.classList.add('active');
+            mostrarMensaje.classList.add('active');
+            mostrarMensaje.value = mensaje;
+            textArea.value = "";
         }
 
         function copiarMensaje() {
-            let copiarTexto = mostraMensaje;
+            let copiarTexto = mostrarMensaje;
             copiarTexto.select();
             copiarTexto.setSelectionRange(0, 1000);
 
             navigator.clipboard.writeText(copiarTexto.value).then(() =>{
-                alert("successfully copied");
+                alert("copiado exitosamente");
             })
             .catch(() => {
                 alert("something went wrong");
