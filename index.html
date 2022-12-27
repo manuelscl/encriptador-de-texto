@@ -40,10 +40,10 @@
             </div>
             <div class="encrypter-message">
                 <div class="message">
-                    <textarea class="message-ed" id="message-ed"></textarea>
+                    <textarea class="message-ed" id="message-ed" readonly="true" disabled></textarea>
                     <img class="illustration-flat" src="./images/ilustracion-flat.svg" alt="ilustración-flat">
-                    <h2 class="no-message-title">Ningún mensaje fue encontrado</h2>
-                    <p class="no-message-description">Ingresa el texto que deseas encriptar o desencriptar</p>
+                    <h2 class="no-message-t">Ningún mensaje fue encontrado</h2>
+                    <p class="no-message-d">Ingresa el texto que deseas encriptar o desencriptar</p>
                     <button class="btns btn-copy" id="btn-copy">Copiar</button>
                 </div>
             </div>
@@ -56,28 +56,30 @@
         let btnDesencriptar = document.querySelector('#btn-decrypt');
         let btnCopiar = document.querySelector('#btn-copy');
         let mostrarMensaje = document.querySelector('#message-ed');
+        let illustrationFlat = document.querySelector('.illustration-flat');
+        let mensajeTitulo = document.querySelector('.no-message-t');
+        let mensajeDescripcion = document.querySelector('.no-message-d');
 
         btnEncriptar.addEventListener('click', encriptarMensaje);
         btnDesencriptar.addEventListener('click', desencriptarMensaje);
         btnCopiar.addEventListener('click', copiarMensaje);
+
+        
+        let isLowerCase = /^[a-z\s]+$/g;
 
         function esMayuscula(letra) {
             return letra === letra.toUpperCase();
         }
 
         function encriptarMensaje() {
-            let mensajeTextArea = textArea.value;
+            let valorDelTextarea = textArea.value;
+            let mensajeDelTextArea = textArea.value;
+            let esNumero = Number(textArea.value);
             let mensajeEncriptado = "";
             let posicionActual;
 
-            for(let i = 0; i < mensajeTextArea.length; i++) {
-                posicionActual = mensajeTextArea.charAt(i);
-
-                if(esMayuscula(posicionActual)) {
-                    alert("No debes escribir el texto en mayúsculas");
-                    textArea.value = "";
-                    return;
-                }
+            for(let i = 0; i < valorDelTextarea.length; i++) {
+                posicionActual = valorDelTextarea.charAt(i);
 
                 if(posicionActual === "a") {
                     posicionActual = "ai";
@@ -89,17 +91,35 @@
                     posicionActual = "ober";
                 } else if(posicionActual === "u") {
                     posicionActual = "ufat";
+                } else if(textArea.value.trim() === "") {
+                    alert("Solo hay espacios");
+                    textArea.value = "";
+                    return;
                 }
+
                 mensajeEncriptado += posicionActual;
-                // mensajeEncriptado = h
-                // mensajeEncriptado = hober
-                // mensajeEncriptado = hoberl
-                // mensajeEncriptado = hoberlai
             }
-            
-            btnCopiar.classList.add('active');
-            mostrarMensaje.classList.add('active');
-            mostrarMensaje.value = mensajeEncriptado;
+
+            if(mensajeDelTextArea.match(isLowerCase)) {
+                btnCopiar.classList.add('active');
+                mostrarMensaje.classList.add('active');
+                illustrationFlat.classList.add('inactive');
+                mensajeTitulo.classList.add('inactive');
+                mensajeDescripcion.classList.add('inactive');
+                mostrarMensaje.value = mensajeEncriptado.trim();
+            } 
+            else if(esNumero) {
+                alert("No debe contener números");
+                return;
+            }
+            else if(mensajeDelTextArea.length === 0) {
+                alert("El campo está vacío")
+                textArea.value = "";
+            }
+            else if(!mensajeDelTextArea.match(isLowerCase) && mensajeDelTextArea.length > 0) {
+                alert("Utiliza solamente letras en minúsculas");
+                textArea.value = "";
+            }
         }
 
         function desencriptarMensaje() {
@@ -110,7 +130,7 @@
             for(let i = 0; i < mensajeTextArea.length; i++) {
                 posicionActual = mensajeTextArea.charAt(i);
 
-                if(esMayuscula(posicionActual)) {
+                if(esMayuscula(posicionActual) && posicionActual != " ") {
                     alert("No debes escribir el texto en mayúsculas");
                     textArea.value = "";
                     return;
@@ -132,7 +152,6 @@
             remplazo = mensaje.replaceAll('ufat', 'u');
             mensaje = remplazo;
 
-            console.log(mensaje)
             
             btnCopiar.classList.add('active');
             mostrarMensaje.classList.add('active');
@@ -146,10 +165,10 @@
             copiarTexto.setSelectionRange(0, 1000);
 
             navigator.clipboard.writeText(copiarTexto.value).then(() =>{
-                alert("copiado exitosamente");
+                alert("Copiado exitosamente");
             })
             .catch(() => {
-                alert("something went wrong");
+                alert("Algo salió mal");
             });
         }
     </script>
