@@ -75,11 +75,6 @@ function desencriptarMensaje() {
     let mensajeTextArea = textArea.value;
     let palabra = textArea.value;
     let mensaje = mensajeTextArea;
-    // let posicionActual;
-
-    // for(let i = 0; i < mensajeTextArea.length; i++) {
-    //     posicionActual = mensajeTextArea.charAt(i);
-    // }
 
     let remplazo = mensaje.replaceAll('ai', 'a');
     mensaje = remplazo;
