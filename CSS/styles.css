@@ -100,12 +100,15 @@ body .active {
     gap: 20px;
 }
 .message-ed {
+    width: 100%;
+    height: 220px;
     display: none;
     font-size: 24px;
     color: var(--darkgray);
     text-align: center;
     border: none;
     outline: none;
+    resize: none;
 }
 .message-ed.active {
     display: block;
