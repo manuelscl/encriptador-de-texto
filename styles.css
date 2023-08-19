@@ -80,6 +80,7 @@ header {
     color: var(--color-titles-background);
     border: none;
     outline: none;
+    resize: none;
 }
 .encrypt__text::placeholder {
     color: var(--color-titles-background);
@@ -143,4 +144,46 @@ header {
 .insert__text {
     font-size: 16px;
     color: var(--color-descriptions-links);
+}
+
+/* Responsive */
+
+@media screen and (max-width: 980px) {
+    header {
+        padding: 20px 30px;
+    }
+    .container {
+        padding: 60px 30px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 895px) {
+    .container {
+        gap: 60px;
+    }
+    .container__left {
+        width: 100%;
+    }
+    .container__right {
+        width: 100%;
+        gap: 15px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .container__right > img {
+        display: none;
+    }
+}
+@media screen and (max-width: 400px) {
+    header {
+        padding: 20px 15px;
+    }
+    .container {
+        padding: 60px 15px;
+    }
+    .buttons {
+        flex-wrap: wrap;
+    }
 }
