@@ -36,14 +36,26 @@
                 </div>
 
                 <div class="buttons">
-                    <button class="button__encrypt">Encriptar</button>
-                    <button class="button__decrypt">Desencriptar</button>
+                    <button class="btn btn__encrypt">Encriptar</button>
+                    <button class="btn btn__decrypt">Desencriptar</button>
                 </div>
             </div>
-            <div class="container__right">
+            <!-- <div class="container__right">
                 <img src="./images/ilustracion-flat.svg" alt="">
                 <h2 class="no__message">Ningún mensaje fue encontrado</h2>
                 <p class="insert__text">Ingresa el texto que deseas encriptar o desencriptar</p>
+            </div> -->
+            <div class="container__right">
+                <p id="messageToShow" class="message inactive"></p>
+                <div class="message__info inactive">
+                    <img id="illustration" src="./images/ilustracion-flat.svg" alt="">
+                    <h2 class="no__message">Ningún mensaje fue encontrado</h2>
+                    <p class="insert__text">Ingresa el texto que deseas encriptar o desencriptar</p>
+                </div>
+                <button class="btn btn__copy inactive">
+                    <i class='bx bx-copy-alt'></i>
+                    Copiar
+                </button>
             </div>
         </section>
     </main>

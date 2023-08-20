@@ -13,6 +13,10 @@
     font-family: 'Inter', sans-serif;
 }
 
+.inactive {
+    display: none;
+}
+
 body {
     background: var(--background-body);
 }
@@ -99,7 +103,7 @@ header {
     margin: 20px 0 0;
     gap: 20px;
 }
-.buttons > button {
+.btn {
     width: 100%;
     font-size: 18px;
     padding: 22px;
@@ -110,13 +114,13 @@ header {
     cursor: pointer;
     transition: 0.3s ease;
 }
-.buttons > button:hover {
+.btn:hover {
     color: white;
     background: var(--color-darkblue-hover);
     transform: translate(0, -10px);
     box-shadow: 0px 20px 20px 0 rgba(0, 0, 0, 0.08);
 }
-.buttons .button__decrypt {
+.btn__decrypt {
     background: none;
     color: var(--color-titles-background);
     border: 1px solid var(--color-titles-background);
@@ -133,8 +137,20 @@ header {
     border-radius: 20px;
     padding: 30px;
     text-align: center;
+    box-shadow: 0 0 40px 10px rgb(136 141 255 / 10%);
 }
-.container__right img {
+.message {
+    font-size: 22px;
+    color: var(--color-descriptions-links);
+}
+.message__info {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+#illustration {
     width: 200px;
 }
 .no__message {
@@ -144,6 +160,11 @@ header {
 .insert__text {
     font-size: 16px;
     color: var(--color-descriptions-links);
+}
+.btn__copy {
+    width: 80%;
+    background: rgb(157 157 157);
+    padding: 10px;
 }
 
 /* Responsive */
@@ -170,9 +191,12 @@ header {
         width: 100%;
         gap: 15px;
     }
+    .message__info {
+        gap: 15px;
+    }
 }
 @media screen and (max-width: 500px) {
-    .container__right > img {
+    #illustration {
         display: none;
     }
 }
