@@ -15,8 +15,8 @@ const letterMappings = {
     'u': 'ufat',
 };
 
-function showMessage(text, returnedMessage) {
-    if(text.length > 0) {
+function showMessage(isMessageEmpty, returnedMessage) {
+    if(isMessageEmpty) {
         infoMessageContainer.classList.add('inactive');
         displayedMessageContainer.classList.remove('inactive');
         btnCopy.classList.remove('inactive');
@@ -51,14 +51,30 @@ function encryptMessage(text) {
         }
     }
     
-    // Log the last actualPosition and the encrypted message
-    console.log(actualPosition);
-    console.log(encryptedMessage);
-    
     // Clear the input textarea after encryption
     showMessage(message, encryptedMessage);
     textarea.value = "";
 }
 
+function decryptMessage(text) {
+    // Convert the input text to lowercase
+    let message = text.value.toLowerCase();
+
+    // Iterate through the letterMappings to perform reverse replacements
+    for (const [original, replacement] of Object.entries(letterMappings)) {
+        // Replace encrypted substrings with their original vowels
+        message = message.replaceAll(replacement, original);
+    }
+
+    // Show the decrypted message in the interface
+    // Note: You might want to consider showing the decrypted message with a different variable than the original message
+    showMessage(message, message);
+
+    // Clear the input textarea after decryption
+    textarea.value = "";
+}
+
+
 // Add a click event listener to the Encrypt button
 btnEncrypt.addEventListener('click', () => encryptMessage(textarea));
+btnDecrypt.addEventListener('click', () => decryptMessage(textarea));
