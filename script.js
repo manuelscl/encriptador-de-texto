@@ -1,7 +1,10 @@
 // Get references to HTML elements
 const textarea = document.querySelector('.encrypt__text');
-const btnEncrypt = document.querySelector('.button__encrypt');
-const btnDecrypt = document.querySelector('.button__decrypt');
+const btnEncrypt = document.querySelector('.btn__encrypt');
+const btnDecrypt = document.querySelector('.btn__decrypt');
+const infoMessageContainer = document.querySelector('.message__info');
+const displayedMessageContainer = document.querySelector('#messageToShow');
+const btnCopy = document.querySelector('.btn__copy');
 
 // Object containing encrypted vowel mappings
 const letterMappings = {
@@ -12,10 +15,24 @@ const letterMappings = {
     'u': 'ufat',
 };
 
+function showMessage(text, returnedMessage) {
+    if(text.length > 0) {
+        infoMessageContainer.classList.add('inactive');
+        displayedMessageContainer.classList.remove('inactive');
+        btnCopy.classList.remove('inactive');
+        displayedMessageContainer.textContent = returnedMessage;
+    }
+    else {
+        infoMessageContainer.classList.remove('inactive');
+        displayedMessageContainer.classList.add('inactive');
+        btnCopy.classList.add('inactive');
+    }
+}
+
 // Function to encrypt the provided text
 function encryptMessage(text) {
     // Convert the input text to lowercase
-    let message = text.toLowerCase();
+    let message = text.value.toLowerCase();
     let encryptedMessage = "";
     let actualPosition;
     
@@ -39,8 +56,9 @@ function encryptMessage(text) {
     console.log(encryptedMessage);
     
     // Clear the input textarea after encryption
+    showMessage(message, encryptedMessage);
     textarea.value = "";
 }
 
 // Add a click event listener to the Encrypt button
-btnEncrypt.addEventListener('click', () => encryptMessage(textarea.value));
+btnEncrypt.addEventListener('click', () => encryptMessage(textarea));

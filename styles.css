@@ -150,6 +150,9 @@ header {
     justify-content: space-between;
     align-items: center;
 }
+.message__info.inactive {
+    display: none;
+}
 #illustration {
     width: 200px;
 }
