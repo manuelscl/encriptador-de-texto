@@ -5,6 +5,12 @@ const infoMessageContainer = document.querySelector('.message__info');
 const displayedMessageContainer = document.querySelector('#messageToShow');
 const btnCopy = document.querySelector('.btn__copy');
 
+const copyIcon = document.createElement('i');
+copyIcon.classList.add('bx', 'bx-copy-alt');
+const checkedIcon = document.createElement('i');
+checkedIcon.classList.add('bx', 'bx-check', 'inactive');
+checkedIcon.style.fontSize = '20px';
+
 const letterMappings = {
     'a': 'ai',
     'e': 'enter',
@@ -63,6 +69,40 @@ function decryptMessage(text) {
     showMessage(message, message);
     textarea.value = "";
 }
+
+// Function to change the button state
+function changeButtonState() {
+    const originalContent = btnCopy.innerHTML; // Store the original content
+
+    btnCopy.classList.add('copied');
+    btnCopy.textContent = 'Copiado';
+    checkedIcon.classList.remove('inactive');
+    btnCopy.appendChild(checkedIcon);
+
+    setTimeout(() => {
+        btnCopy.classList.remove('copied');
+        btnCopy.innerHTML = originalContent; // Restore original content
+        checkedIcon.classList.add('inactive');
+    }, 2000);
+}
+
+// Function to copy the message
+function copyMessage() {
+    const textToCopy = displayedMessageContainer.textContent;
+    navigator.clipboard.writeText(textToCopy).then(() => {
+        changeButtonState(); // Change button state after successful copy
+    })
+    .catch(() => {
+        alert("Couldn't copy the message to the clipboard. Please try again later.");
+    });
+}
+
+// Add click event to the button
+btnCopy.addEventListener('click', () => {
+    copyMessage();
+});
+
+btnCopy.appendChild(copyIcon);
 
 btnEncrypt.addEventListener('click', () => encryptMessage(textarea));
 btnDecrypt.addEventListener('click', () => decryptMessage(textarea));

@@ -169,6 +169,12 @@ header {
     background: rgb(157 157 157);
     padding: 10px;
 }
+.btn__copy:hover {
+    background: rgb(157 157 157);
+}
+.btn__copy.copied {
+    background: rgb(31, 155, 60);
+}
 
 /* Responsive */
 
