@@ -1,4 +1,3 @@
-// Get references to HTML elements
 const textarea = document.querySelector('.encrypt__text');
 const btnEncrypt = document.querySelector('.btn__encrypt');
 const btnDecrypt = document.querySelector('.btn__decrypt');
@@ -6,7 +5,6 @@ const infoMessageContainer = document.querySelector('.message__info');
 const displayedMessageContainer = document.querySelector('#messageToShow');
 const btnCopy = document.querySelector('.btn__copy');
 
-// Object containing encrypted vowel mappings
 const letterMappings = {
     'a': 'ai',
     'e': 'enter',
@@ -29,9 +27,7 @@ function showMessage(isMessageEmpty, returnedMessage) {
     }
 }
 
-// Function to encrypt the provided text
 function encryptMessage(text) {
-    // Convert the input text to lowercase
     let message = text.value.toLowerCase();
     let encryptedMessage = "";
     let actualPosition;
@@ -50,14 +46,12 @@ function encryptMessage(text) {
             encryptedMessage = encryptedMessage + character;
         }
     }
-    
-    // Clear the input textarea after encryption
+
     showMessage(message, encryptedMessage);
     textarea.value = "";
 }
 
 function decryptMessage(text) {
-    // Convert the input text to lowercase
     let message = text.value.toLowerCase();
 
     // Iterate through the letterMappings to perform reverse replacements
@@ -66,15 +60,9 @@ function decryptMessage(text) {
         message = message.replaceAll(replacement, original);
     }
 
-    // Show the decrypted message in the interface
-    // Note: You might want to consider showing the decrypted message with a different variable than the original message
     showMessage(message, message);
-
-    // Clear the input textarea after decryption
     textarea.value = "";
 }
 
-
-// Add a click event listener to the Encrypt button
 btnEncrypt.addEventListener('click', () => encryptMessage(textarea));
 btnDecrypt.addEventListener('click', () => decryptMessage(textarea));
