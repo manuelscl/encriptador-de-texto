@@ -19,5 +19,4 @@ const letterMappings = {
     'u': 'ufat',
 };
 
-// export * from './variables.js';
 export {textarea, btnEncrypt, btnDecrypt, btnCopy, infoMessageContainer, displayedMessageContainer, letterMappings, copyIcon, checkedIcon};
