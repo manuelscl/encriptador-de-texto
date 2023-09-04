@@ -1,6 +1,6 @@
-import {textarea, infoMessageContainer, displayedMessageContainer, btnEncrypt, btnDecrypt, btnCopy, copyIcon, checkedIcon, letterMappings} from './variables.js';
-import cleanMessage from './cleanMessage.js';
+import {textarea, displayedMessageContainer, btnEncrypt, btnDecrypt, btnCopy, copyIcon, letterMappings} from './variables.js';
 import showMessage from './showMessage.js';
+import changeButtonState from './changeButtonState.js';
 
 function encryptMessage(text) {
     let message = text.value.toLowerCase();
@@ -37,26 +37,6 @@ function decryptMessage(text) {
 
     showMessage(message, message);
     textarea.value = "";
-}
-
-// Function to change the button state
-function changeButtonState() {
-    const originalContent = btnCopy.innerHTML; // Store the original content
-
-    btnCopy.classList.add('copied');
-    btnCopy.textContent = 'Copiado';
-    checkedIcon.classList.remove('inactive');
-    btnCopy.appendChild(checkedIcon);
-
-    setTimeout(() => {
-        btnCopy.classList.remove('copied');
-        btnCopy.innerHTML = originalContent; // Restore original content
-        checkedIcon.classList.add('inactive');
-    }, 2000);
-
-    setTimeout(() => {
-        cleanMessage();
-    }, 3000);
 }
 
 // Function to copy the message
