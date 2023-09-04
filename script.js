@@ -19,6 +19,12 @@ const letterMappings = {
     'u': 'ufat',
 };
 
+function cleanMessage() {
+    infoMessageContainer.classList.remove('inactive');
+    displayedMessageContainer.classList.add('inactive');
+    btnCopy.classList.add('inactive');
+}
+
 function showMessage(isMessageEmpty, returnedMessage) {
     if(isMessageEmpty) {
         infoMessageContainer.classList.add('inactive');
@@ -27,9 +33,7 @@ function showMessage(isMessageEmpty, returnedMessage) {
         displayedMessageContainer.textContent = returnedMessage;
     }
     else {
-        infoMessageContainer.classList.remove('inactive');
-        displayedMessageContainer.classList.add('inactive');
-        btnCopy.classList.add('inactive');
+        cleanMessage();
     }
 }
 
@@ -84,6 +88,10 @@ function changeButtonState() {
         btnCopy.innerHTML = originalContent; // Restore original content
         checkedIcon.classList.add('inactive');
     }, 2000);
+
+    setTimeout(() => {
+        cleanMessage();
+    }, 3000);
 }
 
 // Function to copy the message
