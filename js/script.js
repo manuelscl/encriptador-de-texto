@@ -1,6 +1,6 @@
 import {textarea, displayedMessageContainer, btnEncrypt, btnDecrypt, btnCopy, copyIcon, letterMappings} from './variables.js';
 import showMessage from './showMessage.js';
-import changeButtonState from './changeButtonState.js';
+import copyMessage from './copyMessage.js';
 
 function encryptMessage(text) {
     let message = text.value.toLowerCase();
@@ -37,17 +37,6 @@ function decryptMessage(text) {
 
     showMessage(message, message);
     textarea.value = "";
-}
-
-// Function to copy the message
-function copyMessage() {
-    const textToCopy = displayedMessageContainer.textContent;
-    navigator.clipboard.writeText(textToCopy).then(() => {
-        changeButtonState(); // Change button state after successful copy
-    })
-    .catch(() => {
-        alert("Couldn't copy the message to the clipboard. Please try again later.");
-    });
 }
 
 // Add click event to the button
