@@ -1,10 +1,5 @@
 import {textarea, infoMessageContainer, displayedMessageContainer, btnEncrypt, btnDecrypt, btnCopy, copyIcon, checkedIcon, letterMappings} from './variables.js';
-
-function cleanMessage() {
-    infoMessageContainer.classList.remove('inactive');
-    displayedMessageContainer.classList.add('inactive');
-    btnCopy.classList.add('inactive');
-}
+import cleanMessage from './cleanMessage.js';
 
 function showMessage(isMessageEmpty, returnedMessage) {
     if(isMessageEmpty) {
