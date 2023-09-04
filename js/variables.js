@@ -7,6 +7,7 @@ const btnCopy = document.querySelector('.btn__copy');
 
 const copyIcon = document.createElement('i');
 copyIcon.classList.add('bx', 'bx-copy-alt');
+btnCopy.appendChild(copyIcon);
 const checkedIcon = document.createElement('i');
 checkedIcon.classList.add('bx', 'bx-check', 'inactive');
 checkedIcon.style.fontSize = '20px';

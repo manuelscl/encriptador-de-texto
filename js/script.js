@@ -39,12 +39,6 @@ function decryptMessage(text) {
     textarea.value = "";
 }
 
-// Add click event to the button
-btnCopy.addEventListener('click', () => {
-    copyMessage();
-});
-
-btnCopy.appendChild(copyIcon);
-
+btnCopy.addEventListener('click', () => copyMessage());
 btnEncrypt.addEventListener('click', () => encryptMessage(textarea));
 btnDecrypt.addEventListener('click', () => decryptMessage(textarea));
