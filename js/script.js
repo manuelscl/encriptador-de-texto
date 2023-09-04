@@ -1,17 +1,6 @@
 import {textarea, infoMessageContainer, displayedMessageContainer, btnEncrypt, btnDecrypt, btnCopy, copyIcon, checkedIcon, letterMappings} from './variables.js';
 import cleanMessage from './cleanMessage.js';
-
-function showMessage(isMessageEmpty, returnedMessage) {
-    if(isMessageEmpty) {
-        infoMessageContainer.classList.add('inactive');
-        displayedMessageContainer.classList.remove('inactive');
-        btnCopy.classList.remove('inactive');
-        displayedMessageContainer.textContent = returnedMessage;
-    }
-    else {
-        cleanMessage();
-    }
-}
+import showMessage from './showMessage.js';
 
 function encryptMessage(text) {
     let message = text.value.toLowerCase();
