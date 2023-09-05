@@ -1,60 +1,37 @@
+# Text Encryptor / Decryptor
 
-# Encriptador / Desencriptador de Texto
-
-  
-
-## Enlace
+## Link
 
 - Demo: https://manuelscl.github.io/encriptador-de-texto/
 
-  
-
-## Tecnologías Utilizadas
+## Technologies Used
 
 - HTML
-
 - CSS
-
 - JavaScript
 
-  
+## Description
 
-## Descripción
+This project is a web application that allows users to encrypt and decrypt text in a straightforward manner. It offers the following functionalities:
 
-Este proyecto es una aplicación web que permite a los usuarios encriptar y desencriptar texto de manera sencilla. Ofrece las siguientes funcionalidades:
+- **Text Encryption:** Users can enter text into a text area and encrypt it using the algorithm provided by the application.
 
-  
+- **Text Decryption:** In addition, users can decrypt previously encrypted text, allowing them to retrieve the original message.
 
--  **Encriptación de Texto:** Los usuarios pueden ingresar texto en un área de texto y encriptarlo utilizando el algoritmo proporcionado por la aplicación.
+- **Feedback Messages:** The application displays informative messages to indicate whether the encryption or decryption operation was successful or if an error occurred.
 
-  
+- **Message Copying:** Users can easily copy the encrypted or decrypted message to the clipboard for future use.
 
--  **Desencriptación de Texto:** Además, los usuarios pueden desencriptar el texto encriptado previamente, lo que les permite recuperar el mensaje original.
+This application is a useful tool for those who need to protect the confidentiality of their messages or wish to securely share encrypted information.
 
-  
+## Usage
 
--  **Mensajes de Retroalimentación:** La aplicación muestra mensajes informativos para indicar si la operación de encriptación o desencriptación se ha realizado con éxito o si se ha producido algún error.
+To use the application, simply follow these steps:
 
-  
+1. Enter the text you want to encrypt or decrypt into the provided text area.
 
--  **Copiado de Mensajes:** Los usuarios pueden copiar fácilmente el mensaje encriptado o desencriptado al portapapeles para su posterior uso.
+2. Select the corresponding option (encrypt or decrypt).
 
-  
+3. The application will process the text and display the result in the same text area.
 
-Esta aplicación es una herramienta útil para aquellos que necesitan proteger la confidencialidad de sus mensajes o desean compartir información encriptada de manera segura.
-
-  
-
-## Uso
-
-Para utilizar la aplicación, simplemente sigue estos pasos:
-
-  
-
-1. Ingresa el texto que deseas encriptar o desencriptar en el área de texto proporcionada.
-
-2. Selecciona la opción correspondiente (encriptar o desencriptar).
-
-3. La aplicación procesará el texto y mostrará el resultado en el mismo área de texto.
-
-4. Puedes copiar el mensaje encriptado o desencriptado del portapapeles haciendo clic en el botón de copiar.
+4. You can copy the encrypted or decrypted message to the clipboard by clicking the copy button.
