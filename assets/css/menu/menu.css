@@ -40,3 +40,13 @@ header {
     font-size: 34px;
     cursor: pointer;
 }
+@media screen and (max-width: 980px) {
+    header {
+        padding: 20px 30px;
+    }
+}
+@media screen and (max-width: 400px) {
+    header {
+        padding: 20px 15px;
+    }
+}
