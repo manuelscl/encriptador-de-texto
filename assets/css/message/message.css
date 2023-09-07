@@ -4,11 +4,11 @@
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-    background: white;
+    background: var(--background-message-container);
     border-radius: 20px;
     padding: 30px;
     text-align: center;
-    box-shadow: 0 0 40px 10px rgb(136 141 255 / 10%);
+    box-shadow: 0 0 40px 30px var(--color-box-shadow);
 }
 .message {
     font-size: 22px;
@@ -37,14 +37,17 @@
 }
 .btn__copy {
     width: 80%;
-    background: rgb(157 157 157);
+    background: var(--background-btn-copy);
+    border: none;
     padding: 10px;
 }
 .btn__copy:hover {
-    background: rgb(157 157 157);
+    border: none;
 }
 .btn__copy.copied {
-    background: rgb(31, 155, 60);
+    color: white;
+    background: var(--background-btn-copied);
+    border: none;
 }
 
 @media screen and (max-width: 895px) {

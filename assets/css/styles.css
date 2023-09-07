@@ -1,10 +1,20 @@
 :root {
-    --color-titles-background: #0A3871;
-    --color-darkblue-hover: #052051;
+    --color-btns: white;
+    --color-btn2: #0A3871;
+    --color-textarea: #0A3871;
     --background-body: #F3F5FC;
-    --color-descriptions-links: #495057;
+    --background-btns: #0A3871;
+    --background-btns-hover: #052051;
+    --btns-border: #0A3871;
     --color-title-message: #343A40;
+    --background-btn-copy: #333333;
+    --color-descriptions-links: #495057;
+    --background-btn-copied: #4CAF50;
+    --color-btn-copy: #272727;
+    --background-message-container: white;
+    --color-box-shadow: rgb(136 141 255 / 10%);
 }
+
 
 * {
     padding: 0;

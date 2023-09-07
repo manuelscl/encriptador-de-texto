@@ -14,7 +14,7 @@
     height: 240px;
     font-size: 32px;
     background: none;
-    color: var(--color-titles-background);
+    color: var(--color-textarea);
     border: none;
     outline: none;
     resize: none;
@@ -40,23 +40,28 @@
     width: 100%;
     font-size: 18px;
     padding: 22px;
-    color: white;
-    background: var(--color-titles-background);
-    border: none;
+    color: var(--color-btns);
+    background: var(--background-btns);
+    border: 1px solid var(--background-btns);
     border-radius: 12px;
     cursor: pointer;
     transition: 0.3s ease;
+    outline: none;
 }
 .btn:hover {
-    color: white;
-    background: var(--color-darkblue-hover);
+    color: var(--color-btns);
+    background: var(--background-btns-hover);
     transform: translate(0, -10px);
     box-shadow: 0px 20px 20px 0 rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--background-btns-hover);
 }
 .btn__decrypt {
     background: none;
-    color: var(--color-titles-background);
-    border: 1px solid var(--color-titles-background);
+    color: var(--color-btn2);
+    border: 1px solid var(--color-btn2);
+}
+.btn__decrypt:hover {
+    border: 1px solid var(--background-btns-hover);
 }
 
 @media screen and (max-width: 980px) {
