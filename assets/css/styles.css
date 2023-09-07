@@ -15,6 +15,23 @@
     --color-box-shadow: rgb(136 141 255 / 10%);
 }
 
+/* :root.dark {
+    --color-btns: #A8A8A8;
+    --color-btn2: #A8A8A8;
+    --color-textarea: #A8A8A8;
+    --background-body: #1A1A1A;
+    --background-btns: none;
+    --background-btns-hover: #000000;
+    --btns-border: #0A3871;
+    --color-title-message: #C8C8C8;
+    --background-btn-copy: #333333;
+    --color-descriptions-links: #A8A8A8;
+    --background-btn-copied: #4CAF50;
+    --color-btn-copy: #272727;
+    --background-message-container: #1A1A1A;
+    --color-box-shadow: rgb(31 31 31);
+} */
+
 
 * {
     padding: 0;
