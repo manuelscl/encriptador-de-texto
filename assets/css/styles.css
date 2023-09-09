@@ -45,9 +45,14 @@
 }
 
 body {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     background: var(--background-body);
+}
+
+@media screen and (min-width: 895px) {
+    body {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }
