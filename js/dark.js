@@ -26,9 +26,9 @@ sunIcon.addEventListener('click', () => {
 
 
 window.addEventListener('load', () => {
-    const modoGuardado = localStorage.getItem('mode');
+    const savedMode = localStorage.getItem('mode');
 
-    if(modoGuardado === 'dark') {
+    if(savedMode === 'dark') {
         switchToDarkMode();
     } 
     else {
