@@ -50,7 +50,7 @@ body {
 
 @media screen and (min-width: 895px) {
     body {
-        height: auto;
+        height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
